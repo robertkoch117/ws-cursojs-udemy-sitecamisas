@@ -138,6 +138,27 @@ $(function(){
 
     }
 
+
+    function atualizar_campos (parametros){
+
+        $("#cor").children().removeClass("selected");
+        var id_cor = "#" + parametros.cor;
+        $(id_cor).addClass("selected");
+
+        $("#gola").children().removeClass("selected");
+        var id_gola = "#" + parametros.gola;
+        $(id_gola).addClass("selected");
+
+        $("#qualidade").children().removeClass("selected");
+        var id_qualidade = "#" + parametros.qualidade;
+        $(id_qualidade).addClass("selected");
+
+        $("#estampa").val(parametros.estampa);
+        $("#embalagem").val(parametros.embalagem);
+        $("#quantidade").val(parametros.quantidade);
+    }
+
+
     $(".option-filter div").click(function(){
 
         $(this).parent().children("div").removeClass("selected");
@@ -165,6 +186,8 @@ $(function(){
 
     //verificar local storage e atualizar a variavel paramettros pesquisa
 
+    atualizar_campos(parametros_pesquisa);
+    atualizar_orcamento(parametros_pesquisa);
 
 });
 
