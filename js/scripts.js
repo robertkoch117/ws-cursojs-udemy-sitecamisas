@@ -110,11 +110,27 @@ $(function(){
         }else if(quantidade >= 100){
             valor_total *= 0.95;
         }
+        console.log(valor_total);
+        $(".refresh-loader").hide();
+
     }
+
+    $(".option-filter div").click(function(){
+
+        $(this).parent().children("div").removeClass("selected");
+        $(this).addClass("selected");
+
+        var categoria = $(this).parent().attr('id');
+        parametros_pesquisa[categoria] = $(this).attr('id');
+        
+        atualizar_orcamento(parametros_pesquisa);
+
+
+    });
+
 
     //verificar local storage e atualizar a variavel paramettros pesquisa
 
-    atualizar_orcamento(parametros_pesquisa);
 
 });
 
